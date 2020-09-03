@@ -1,10 +1,10 @@
-import { combinedReducers } from 'redux'
-import authUser from '../reducers/authedUser'
-import userReducer from '../reducers/users'
-import pollsReducer from '../reducers/polls'
+import { combineReducers } from "redux";
+import authUser from "../reducers/authedUser";
+import userReducer from "../reducers/users";
+import questionsReducer from "../reducers/questions";
 
-export default combinedReducers({
-    authUser,
-    userReducer,
-    pollsReducer,
-})
+export default combineReducers({
+  authUser,
+  userReducer,
+  questionsReducer,
+});

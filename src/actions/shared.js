@@ -1,16 +1,16 @@
-import { getInitialData } from '../utils/api'
+import { getInitialData } from '../API'
 import { receiveUsers } from '../actions/users'
-import { receivePolls } from '../actions/polls'
+import { receiveQuestions } from './questions'
 import { getAuthedUser } from '../actions/authedUser'
 
 const AUTHED_ID = 'tylermcginness'
 
-function handlePopulatingData() {
+export function handlePopulatingData() {
     return (dispatch) => {
         getInitialData()
-        .then(( { users, polls }) => {
+        .then(( { users, questions }) => {
             dispatch(receiveUsers(users))
-            dispatch(receivePolls(polls))
+            dispatch(receiveQuestions(questions))
             dispatch(getAuthedUser(AUTHED_ID))
         })
     }
