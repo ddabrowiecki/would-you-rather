@@ -8,7 +8,7 @@ const AUTHED_ID = 'tylermcginness'
 export function handlePopulatingData() {
     return (dispatch) => {
         getInitialData()
-        .then(( { users, questions }) => {
+        .then(({ users, questions}) => {
             dispatch(receiveUsers(users))
             dispatch(receiveQuestions(questions))
             dispatch(getAuthedUser(AUTHED_ID))
