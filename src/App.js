@@ -3,6 +3,7 @@ import "./App.css";
 import { connect } from 'react-redux'
 import { handlePopulatingData } from './actions/shared'
 import HomeScreen from './components/HomeScreen'
+import NewQuestion from './components/NewQuestion'
 
 class App extends React.Component {
   componentDidMount() {
@@ -12,6 +13,7 @@ class App extends React.Component {
   return (
     <div className="App">
       <HomeScreen />
+      <NewQuestion />
     </div>
   )};
 }
