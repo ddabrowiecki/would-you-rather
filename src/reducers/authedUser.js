@@ -1,12 +1,9 @@
 import { AUTHED_USER } from '../actions/authedUser'
 
-export default function authReducer(state = null, action) {
+export default function authedUser(state = null, action) {
     switch(action.type) {
         case AUTHED_USER:
-            return {
-                ...state,
-                ...action.id,
-            }
+            return action.id
         default:
             return state
     }

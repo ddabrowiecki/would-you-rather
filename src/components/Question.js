@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { formatQuestion } from "../_Data.js";
+import { formatQuestion } from "../_Data";
 
 class Question extends React.Component {
   render() {
@@ -18,10 +18,10 @@ class Question extends React.Component {
             <form>
               <p>Would You Rather...</p>
               <input type="radio" id="optionOne" value="optionOne"></input>
-              <label for="optionOne">{question.optionOne.text}</label>
+              <label>{question.optionOne.text}</label>
               <br></br>
               <input type="radio" id="optionTwo" value="optionTwo"></input>
-              <label for="optionTwo">{question.optionTwo.text}</label>
+              <label>{question.optionTwo.text}</label>
             </form>
             <button className="submit">Submit</button>
           </div>
@@ -31,10 +31,10 @@ class Question extends React.Component {
   }
 }
 
-function mapStateToProps({ authUser, users, questions }, { id }) {
+function mapStateToProps({ authedUser, users, questions }, { id }) {
   const question = questions[id];
   return {
-    authUser,
+    authedUser,
     question: formatQuestion({
       optionOneText: question.optionOne.text,
       optionTwoText: question.optionTwo.text,

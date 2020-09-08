@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { handleAddQuestion } from '../actions/questions'
 
-export default class NewQuestion extends React.Component {
+class NewQuestion extends React.Component {
     state = {
         optionOne: '',
         optionTwo: '',
@@ -24,7 +25,9 @@ export default class NewQuestion extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const { optionOne, optionTwo } = this.state;
-        console.log(optionOne, optionTwo);
+        const { dispatch } = this.props
+        dispatch(handleAddQuestion(optionOne, optionTwo))
+
         this.setState(() => ({
             optionOne: '',
             optionTwo: '',
@@ -38,18 +41,18 @@ export default class NewQuestion extends React.Component {
             <h3>Create a New Question</h3>
             <form className="new-question" onSubmit={this.handleSubmit}>
                 <h3>Would you rather...</h3>
-                <textarea
+                <input
                 placeholder='Option 1'
                 value={ optionOne }
                 onChange={this.handleChangeOptionOne}
                 className="option-one"
-                ></textarea>
-                <textarea
+                />
+                <input
                 placeholder='Option 2'
                 value={ optionTwo }
                 onChange={this.handleChangeOptionTwo}
                 className="option-two"
-                ></textarea>
+                />
                 <button
                 type="submit"
                 disabled={ optionOne === '' && optionTwo === ''}
@@ -59,3 +62,5 @@ export default class NewQuestion extends React.Component {
         )
     }
 }
+
+export default connect()(NewQuestion)

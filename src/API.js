@@ -19,6 +19,10 @@ import {
   export function saveQuestion (info) {
     return _saveQuestion(info)
   }
+
+  export function formatQuestionAPI (info) {
+    return formatQuestion(info)
+  }
   
   export function saveQuestionAnswer (info) {
     return _saveQuestionAnswer(info)

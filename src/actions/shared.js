@@ -3,7 +3,7 @@ import { receiveUsers } from '../actions/users'
 import { receiveQuestions } from './questions'
 import { getAuthedUser } from '../actions/authedUser'
 
-const AUTHED_ID = 'tylermcginness'
+const AUTHED_ID = 'tylermcginnis'
 
 export function handlePopulatingData() {
     return (dispatch) => {
