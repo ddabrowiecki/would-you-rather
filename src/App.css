@@ -2,25 +2,30 @@
   text-align: center;
 }
 
-.user-header{
+.user-header {
   text-align: left;
 }
 
-.question-box{
-  display:flex;
+.question-box {
+  display: flex;
   justify-content: space-between;
 }
 
-.question-options{
+.question-options {
   text-align: left;
 }
 
-.question-container{
+.question-container {
   width: 400px;
   display: flex;
   flex-direction: column;
   margin: 10px;
 }
 
-
-
+.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
