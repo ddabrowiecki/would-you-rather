@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { NewQuestion } from './components/NewQuestion'
 import { Leaderboard } from './components/Leaderboard'
 import { Login } from './components/Login'
+import NavBar from './components/NavBar'
 
 class App extends React.Component {
   componentDidMount() {
@@ -16,6 +17,7 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
+          <NavBar />
           <Route path="/" exact component={HomeScreen} />
           <Route path="/new" exact component={NewQuestion} />
           <Route path="/leaderboard" exact component={Leaderboard} />
