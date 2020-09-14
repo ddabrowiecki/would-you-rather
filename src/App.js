@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 import { handlePopulatingData } from "./actions/shared";
 import HomeScreen from "./components/HomeScreen";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { NewQuestion } from './components/NewQuestion'
-import { Leaderboard } from './components/Leaderboard'
-import { Login } from './components/Login'
-import NavBar from './components/NavBar'
+import NewQuestion from "./components/NewQuestion";
+import Leaderboard from "./components/Leaderboard";
+import Login from "./components/Login";
+import NavBar from "./components/NavBar";
 
 class App extends React.Component {
   componentDidMount() {

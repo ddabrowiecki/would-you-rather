@@ -22,6 +22,22 @@
   margin: 10px;
 }
 
+.score-container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.score-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.score-options {
+  text-align: left;
+}
+
 .nav-bar {
   list-style-type: none;
   margin: 0;

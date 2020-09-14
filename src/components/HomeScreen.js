@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Question from './Question'
 import NewQuestion from './NewQuestion'
 import Login from './Login'
+import { Leaderboard } from './Leaderboard'
 
 function mapStateToProps({questions}) {
     return {
@@ -19,8 +20,6 @@ class HomeScreen extends Component {
                         <Question key={id} id={id} />
                     )}
                 </ul>
-                <NewQuestion />
-                <Login />
             </div>
         )
     }

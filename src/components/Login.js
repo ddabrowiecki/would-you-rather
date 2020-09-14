@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handleChangingAuthedUser } from "../actions/shared";
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    handleChangingAuthedUser,
-  };
-};
-
 export class Login extends Component {
   state = {
     id: "",

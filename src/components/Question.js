@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatQuestion } from "../_Data";
 
-class Question extends React.Component {
+class Question extends Component {
   render() {
     const { question } = this.props;
     return (
