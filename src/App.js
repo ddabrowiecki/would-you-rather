@@ -9,23 +9,32 @@ import Leaderboard from "./components/Leaderboard";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
 
+function mapStateToProps({ authedUser }) {
+  return {
+    authedUser,
+  };
+}
 class App extends React.Component {
   componentDidMount() {
     this.props.dispatch(handlePopulatingData());
   }
   render() {
+    const { authedUser } = this.props;
     return (
       <Router>
-        <div className="App">
-          <NavBar />
-          <Route path="/" exact component={HomeScreen} />
-          <Route path="/new" exact component={NewQuestion} />
-          <Route path="/leaderboard" exact component={Leaderboard} />
-          <Route path="/login" exact component={Login} />
-        </div>
+        {!authedUser && <Login />}
+        {authedUser && (
+          <div className="App">
+            <NavBar />
+            <Route path="/" exact component={HomeScreen} />
+            <Route path="/new" exact component={NewQuestion} />
+            <Route path="/leaderboard" exact component={Leaderboard} />
+            <Route path="/login" exact component={Login} />
+          </div>
+        )}
       </Router>
     );
   }
 }
 
-export default connect()(App);
+export default connect(mapStateToProps)(App);

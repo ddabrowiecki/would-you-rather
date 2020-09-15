@@ -1,9 +1,13 @@
 import { getInitialData } from "../API";
 import { receiveUsers } from "../actions/users";
 import { receiveQuestions } from "./questions";
-import { getAuthedUser, changeAuthedUser } from "../actions/authedUser";
+import {
+  getAuthedUser,
+  loginAuthedUser,
+  logoutAuthedUser,
+} from "../actions/authedUser";
 
-const AUTHED_ID = "tylermcginnis";
+const AUTHED_ID = null;
 
 export function handlePopulatingData() {
   return (dispatch) => {
@@ -15,8 +19,9 @@ export function handlePopulatingData() {
   };
 }
 
-export function handleChangingAuthedUser(id) {
+export function handleLoginAuthedUser(id) {
   return (dispatch) => {
-    dispatch(changeAuthedUser(id));
+    dispatch(loginAuthedUser(id));
   };
 }
+

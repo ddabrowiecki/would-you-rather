@@ -14,10 +14,10 @@ export class UserProfile extends Component {
             <img src={user.avatarURL}></img>
           </div>
           <div className="score-options">
-            <p> Answered Questions: {user.answers.length}</p>
+            <p> Answered Questions: {Object.keys(user.answers).length}</p>
             <p> Created Questions: {user.questions.length}</p>
             <p>Score</p>
-            <div>{user.answers.length + user.questions.length}</div>
+            <div>{Object.keys(user.answers).length + user.questions.length}</div>
           </div>
         </div>
       </div>

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { handleChangingAuthedUser } from "../actions/shared";
+import { handleLoginAuthedUser } from "../actions/shared";
 
 export class Login extends Component {
   state = {
     id: "",
   };
 
-  handleChangeUser = (e) => {
+  handleLoginUser = (e) => {
     e.preventDefault();
     this.setState({
       id: e.target.value,
@@ -17,7 +17,7 @@ export class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { dispatch } = this.props;
-    dispatch(handleChangingAuthedUser(this.state.id));
+    dispatch(handleLoginAuthedUser(this.state.id));
   };
 
   render() {
@@ -30,8 +30,9 @@ export class Login extends Component {
             id="login"
             name="login"
             value={this.props.value}
-            onChange={this.handleChangeUser}
+            onChange={this.handleLoginUser}
           >
+            <option value={null}></option>
             <option value="tylermcginnis">Tyler</option>
             <option value="sarahedo">Sarah</option>
             <option value="johndoe">John</option>

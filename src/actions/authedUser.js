@@ -1,5 +1,6 @@
 export const AUTHED_USER = 'AUTHED_USER'
-export const CHANGE_AUTHED_USER = 'CHANGE_AUTHED_USER'
+export const LOGIN_AUTHED_USER = 'LOGIN_AUTHED_USER'
+export const LOGOUT_AUTHED_USER = 'LOGOUT_AUTHED_USER'
 
 export function getAuthedUser(id) {
     return {
@@ -8,9 +9,15 @@ export function getAuthedUser(id) {
     }
 }
 
-export function changeAuthedUser(id) {
+export function loginAuthedUser(id) {
     return {
-        type: CHANGE_AUTHED_USER,
+        type: LOGIN_AUTHED_USER,
         id,
+    }
+}
+
+export function logoutAuthedUser() {
+    return {
+        type: LOGOUT_AUTHED_USER,
     }
 }

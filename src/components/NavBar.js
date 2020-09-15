@@ -1,11 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { handleLogoutAuthedUser } from "../actions/shared"
+import { logoutAuthedUser } from "../actions/authedUser";
 
 // This code heavily informed by the tutorial at https://www.w3schools.com/css/css_navbar.asp
 
-export default class NavBar extends Component {
+function mapStateToProps({ authedUser, users }) {
+  return {
+    authedUser,
+    users,
+  };
+}
+
+export class NavBar extends Component {
   render() {
+    const { users, authedUser } = this.props;
     return (
       <ul className="nav-bar">
         <li>
@@ -23,12 +33,15 @@ export default class NavBar extends Component {
             Leaderboard
           </NavLink>
         </li>
+        <li>Hey there, {users[authedUser].name}</li>
         <li>
-          <NavLink to="/login" exact activeClassName="active">
-            Login
-          </NavLink>
+          <div
+          onClick={() => this.props.dispatch(logoutAuthedUser())}
+          >Logout</div>
         </li>
       </ul>
     );
   }
 }
+
+export default connect(mapStateToProps)(NavBar);
