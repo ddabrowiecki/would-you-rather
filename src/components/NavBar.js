@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { handleLogoutAuthedUser } from "../actions/shared"
 import { logoutAuthedUser } from "../actions/authedUser";
 
 // This code heavily informed by the tutorial at https://www.w3schools.com/css/css_navbar.asp

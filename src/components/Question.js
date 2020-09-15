@@ -12,7 +12,7 @@ class Question extends Component {
         </div>
         <div className="question-box">
           <div className="user-avatar">
-            <img src={question.author.avatarURL}></img>
+            <img src={question.author.avatarURL} alt='None found'></img>
           </div>
           <div className="question-options">
             <form>

@@ -4,7 +4,6 @@ import { receiveQuestions } from "./questions";
 import {
   getAuthedUser,
   loginAuthedUser,
-  logoutAuthedUser,
 } from "../actions/authedUser";
 
 const AUTHED_ID = null;

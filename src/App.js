@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./App.css";
 import { connect } from "react-redux";
 import { handlePopulatingData } from "./actions/shared";

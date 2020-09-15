@@ -11,7 +11,7 @@ export class UserProfile extends Component {
         </div>
         <div className="score-box">
           <div className="user-avatar">
-            <img src={user.avatarURL}></img>
+            <img src={user.avatarURL} alt='None found'> </img>
           </div>
           <div className="score-options">
             <p> Answered Questions: {Object.keys(user.answers).length}</p>
