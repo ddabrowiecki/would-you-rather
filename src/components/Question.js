@@ -12,19 +12,23 @@ class Question extends Component {
         </div>
         <div className="question-box">
           <div className="user-avatar">
-            <img src={question.author.avatarURL} alt='None found'></img>
+            <img src={question.author.avatarURL} alt="None found"></img>
           </div>
-          <div className="question-options">
-            <form>
-              <p>Would You Rather...</p>
-              <input type="radio" id="optionOne" value="optionOne"></input>
-              <label>{question.optionOne.text}</label>
-              <br></br>
-              <input type="radio" id="optionTwo" value="optionTwo"></input>
-              <label>{question.optionTwo.text}</label>
-            </form>
-            <button className="submit">Submit</button>
-          </div>
+          {this.props.answered ? (
+            <div>You answered this question.</div>
+          ) : (
+            <div className="question-options">
+              <form>
+                <p>Would You Rather...</p>
+                <input type="radio" id="optionOne" value="optionOne"></input>
+                <label>{question.optionOne.text}</label>
+                <br></br>
+                <input type="radio" id="optionTwo" value="optionTwo"></input>
+                <label>{question.optionTwo.text}</label>
+              </form>
+              <button className="submit">Submit</button>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -35,6 +39,7 @@ function mapStateToProps({ authedUser, users, questions }, { id }) {
   const question = questions[id];
   return {
     authedUser,
+    users,
     question: formatQuestion({
       optionOneText: question.optionOne.text,
       optionTwoText: question.optionTwo.text,
