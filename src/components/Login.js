@@ -23,21 +23,29 @@ export class Login extends Component {
   render() {
     return (
       <div>
-        <p>Login</p>
-        <form onSubmit={this.handleSubmit}>
-          <label for="login">Please log in</label>
-          <select
-            id="login"
-            name="login"
-            value={this.props.value}
-            onChange={this.handleLoginUser}
-          >
-            <option value={null}></option>
-            <option value="tylermcginnis">Tyler</option>
-            <option value="sarahedo">Sarah</option>
-            <option value="johndoe">John</option>
-          </select>
-          <button type="submit">Submit</button>
+        <p className="login-title">Login</p>
+        <form onSubmit={this.handleSubmit} className="login-form">
+          <div className="login-image">
+            <img src="" alt="None found"></img>
+          </div>
+          <div className="login-form-text">
+            <label for="login">Please log in</label>
+            <select
+              className="login-dropdown"
+              id="login"
+              name="login"
+              value={this.props.value}
+              onChange={this.handleLoginUser}
+            >
+              <option value={null}></option>
+              <option value="tylermcginnis">Tyler</option>
+              <option value="sarahedo">Sarah</option>
+              <option value="johndoe">John</option>
+            </select>
+            <button className="login-submit" type="submit">
+              Submit
+            </button>
+          </div>
         </form>
       </div>
     );

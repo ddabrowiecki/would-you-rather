@@ -3,8 +3,13 @@ import { connect } from "react-redux";
 import { formatQuestion } from "../_Data";
 
 class Question extends Component {
+
   render() {
-    const { question } = this.props;
+    const { question, authedUser, users, id } = this.props;
+    const answerObject = users[authedUser].answers
+    const answerChoice = answerObject[id]
+    const answerText = question[answerChoice]
+
     return (
       <div className="question-container">
         <div className="user-header">
@@ -15,7 +20,12 @@ class Question extends Component {
             <img src={question.author.avatarURL} alt="None found"></img>
           </div>
           {this.props.answered ? (
-            <div>You answered this question.</div>
+            <div>
+              <p>Would You Rather...</p>
+              <div>{question.optionOne.text}</div>
+              <div>{question.optionTwo.text}</div>
+              <div>You said: {answerText.text}</div>
+            </div>
           ) : (
             <div className="question-options">
               <form>

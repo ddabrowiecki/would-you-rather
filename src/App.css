@@ -45,3 +45,61 @@
   display: flex;
   justify-content: space-around;
 }
+
+/* Login Page */
+
+.login-title {
+  display: flex;
+  justify-content: center;
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 400px;
+  margin-right: 400px;
+  border-style: solid;
+  height: 400px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.login-form-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Home Screen Page */
+
+.questions-tab {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.answered {
+  padding-left: 5px;
+  padding-right: 5px;
+  border-style: solid;
+}
+
+.unanswered {
+  padding-left: 5px;
+  padding-right: 5px;
+  border-style: solid;
+}
+
+.question-list {
+  display: flex;
+  justify-content: center;
+}
+
+/* Leaderboard */
+
+.leader-list {
+  display: flex;
+  justify-content: center;
+}
