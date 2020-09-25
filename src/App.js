@@ -26,6 +26,7 @@ class App extends React.Component {
         {authedUser && (
           <div className="App">
             <NavBar />
+            <hr></hr>
             <Route path="/" exact component={HomeScreen} />
             <Route path="/add" exact component={NewQuestion} />
             <Route path="/leaderboard" exact component={Leaderboard} />

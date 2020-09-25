@@ -32,7 +32,6 @@ export class Leaderboard extends Component {
     const { users } = this.props;
     return (
       <div>
-        <p>Leaderboard</p>
         <div className="leader-list">
           <ul>
             {users &&

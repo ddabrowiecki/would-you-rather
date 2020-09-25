@@ -6,44 +6,63 @@
   text-align: left;
 }
 
-.question-box {
-  display: flex;
-  justify-content: space-between;
-}
-
-.question-options {
-  text-align: left;
-}
-
-.question-container {
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-}
-
-.score-container {
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-}
-
-.score-box {
-  display: flex;
-  justify-content: space-between;
-}
-
-.score-options {
-  text-align: left;
-}
-
 .nav-bar {
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: space-around;
+  background-color: crimson;
+  width: 100%;
+  margin-bottom: 1em;
+  padding: 2em 3em;
+  border-radius: 0.15em;
+  border: 0.2em solid #fff;
+  color: #fff;
+  z-index: 1;
+}
+
+/* Below styling informed by this tutorial: https://sharkcoder.com/blocks/tabs */
+
+.home-tab {
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  border-bottom: none;
+  border-radius: 0.4em 0.4em 0 0;
+  transform: scale(1.2, 1.3) perspective(0.5em) rotateX(5deg);
+  padding-top: 13px;
+    text-align: center;
+    border-radius: 30px;
+    height: 30px;
+    margin-right: 1px;
+}
+
+.add-question-tab {
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  border-bottom: none;
+  border-radius: 0.4em 0.4em 0 0;
+  transform: scale(1.2, 1.3) perspective(0.5em) rotateX(5deg);
+}
+
+.leaderboard-tab {
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  border-bottom: none;
+  border-radius: 0.4em 0.4em 0 0;
+  transform: scale(1.2, 1.3) perspective(0.5em) rotateX(5deg);
+}
+
+.logout-tab {
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  border-bottom: none;
+  border-radius: 0.4em 0.4em 0 0;
+  transform: scale(1.2, 1.3) perspective(0.5em) rotateX(5deg);
 }
 
 /* Login Page */
@@ -61,9 +80,11 @@
   margin-left: 400px;
   margin-right: 400px;
   border-style: solid;
+  border-color: crimson;
   height: 400px;
   padding-top: 100px;
   padding-bottom: 100px;
+  border-radius: 6px;
 }
 
 .login-form-text {
@@ -72,29 +93,75 @@
   justify-content: space-between;
 }
 
-/* Home Screen Page */
-
-.questions-tab {
-  display: flex;
-  justify-content: center;
-  padding-top: 30px;
+.login-dropdown {
+  width: 100px;
+  border-radius: 4px;
+  border-style: solid;
+  border-color: crimson;
 }
+
+.login-submit {
+  background-color: crimson;
+  border-style: solid;
+  border-radius: 4px;
+  opacity: 0.75;
+  border-color: crimson;
+  color: white;
+}
+
+/* Home Screen Page */
 
 .answered {
   padding-left: 5px;
   padding-right: 5px;
   border-style: solid;
+  border-radius: 6px;
 }
 
 .unanswered {
   padding-left: 5px;
   padding-right: 5px;
   border-style: solid;
+  border-radius: 6px;
 }
 
 .question-list {
   display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 400px;
+  margin-right: 400px;
+  height: 400px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  border-style: solid;
+  border-color: crimson;
+  border-radius: 6px;
+}
+
+.questions-tab {
+  margin-left: 200px;
+  margin-right: 200px;
+  display: flex;
   justify-content: center;
+  padding-top: 30px;
+}
+
+.question-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.question-options {
+  text-align: left;
+}
+
+.question-container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
 }
 
 /* Leaderboard */
@@ -102,4 +169,28 @@
 .leader-list {
   display: flex;
   justify-content: center;
+  margin-left: 400px;
+  margin-right: 400px;
+  margin-top: 50px;
+  height: 400px;
+  padding-bottom: 100px;
+  border-style: solid;
+  border-color: crimson;
+  border-radius: 6px;
+}
+
+.score-container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.score-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.score-options {
+  text-align: left;
 }

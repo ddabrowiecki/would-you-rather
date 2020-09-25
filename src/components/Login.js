@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handleLoginAuthedUser } from "../actions/shared";
+// import wouldyourather from "../public/wouldyourather.png"
 
 export class Login extends Component {
   state = {
@@ -23,7 +24,6 @@ export class Login extends Component {
   render() {
     return (
       <div>
-        <p className="login-title">Login</p>
         <form onSubmit={this.handleSubmit} className="login-form">
           <div className="login-image">
             <img src="" alt="None found"></img>
