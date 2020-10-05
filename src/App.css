@@ -82,7 +82,7 @@
   border-style: solid;
   border-color: crimson;
   height: 400px;
-  padding-top: 100px;
+  padding-top: 50px;
   padding-bottom: 100px;
   border-radius: 6px;
 }
@@ -109,6 +109,11 @@
   color: white;
 }
 
+.login-image {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
 /* Home Screen Page */
 
 .answered {
@@ -116,6 +121,11 @@
   padding-right: 5px;
   border-style: solid;
   border-radius: 6px;
+  margin-left: 100px;
+  border-color: crimson;
+  background-color: crimson;
+  padding-left: 20px;
+  color: white;
 }
 
 .unanswered {
@@ -123,6 +133,10 @@
   padding-right: 5px;
   border-style: solid;
   border-radius: 6px;
+  border-color: crimson;
+  background-color: crimson;
+  padding-right: 50px;
+  color: white;
 }
 
 .question-list {
@@ -132,8 +146,9 @@
   justify-content: space-between;
   margin-left: 400px;
   margin-right: 400px;
-  height: 400px;
-  padding-top: 100px;
+  height: 100%;
+  width: 50%;
+  padding-top: 25px;
   padding-bottom: 100px;
   border-style: solid;
   border-color: crimson;
@@ -164,6 +179,15 @@
   margin: 10px;
 }
 
+.submit {
+  background-color: crimson;
+  border-style: solid;
+  border-radius: 4px;
+  opacity: 0.75;
+  border-color: crimson;
+  color: white;
+}
+
 /* Leaderboard */
 
 .leader-list {
@@ -172,11 +196,12 @@
   margin-left: 400px;
   margin-right: 400px;
   margin-top: 50px;
-  height: 400px;
   padding-bottom: 100px;
   border-style: solid;
   border-color: crimson;
   border-radius: 6px;
+  padding-top: 50px;
+  padding-bottom: 100px;
 }
 
 .score-container {
@@ -193,4 +218,28 @@
 
 .score-options {
   text-align: left;
+}
+
+.img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Create New Question */
+
+.create-submit {
+  background-color: crimson;
+  border-style: solid;
+  border-radius: 4px;
+  opacity: 0.75;
+  border-color: crimson;
+  color: white;
+}
+
+.create {
+  color: crimson;
+}
+
+.would {
+  color: crimson;
 }

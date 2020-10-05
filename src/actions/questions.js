@@ -1,7 +1,8 @@
-import { saveQuestion } from '../API'
+import { saveQuestion, saveQuestionAnswer } from '../API'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'ADD_QUESTION'
+export const ADD_VOTE = 'ADD_VOTE'
 
 export function addQuestion(question) {
     return {
@@ -29,5 +30,28 @@ export function receiveQuestions(questions) {
     return {
         type: RECEIVE_QUESTIONS,
         questions,
+    }
+}
+
+export function addVote(author, questionId, voteOption) {
+    return {
+        type: ADD_VOTE,
+        author,
+        questionId,
+        voteOption,
+    }
+}
+
+export const handleAddVote = (questionId, voteOption) => {
+    return (dispatch, getState) => {
+        const { authedUser } = getState()
+        return saveQuestionAnswer({
+            authedUser,
+            qid: questionId,
+            answer: voteOption,
+        })
+        .then(() => {
+            dispatch(addVote(authedUser, questionId, voteOption))
+        })
     }
 }

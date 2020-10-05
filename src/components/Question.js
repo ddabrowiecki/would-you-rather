@@ -1,14 +1,33 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatQuestion } from "../_Data";
+import { handleAddVote } from "../actions/questions";
 
 class Question extends Component {
+  state = {
+    qid: null,
+    vote: null,
+  };
+
+  handleSubmitQuestion = () => {
+    const { qid, vote } = this.state;
+    const { dispatch } = this.props;
+    dispatch(handleAddVote(qid, vote));
+  };
+
+  selectOption = (e) => {
+    const { id } = this.props;
+    this.setState({
+      qid: id,
+      vote: e.target.value,
+    });
+  };
 
   render() {
     const { question, authedUser, users, id } = this.props;
-    const answerObject = users[authedUser].answers
-    const answerChoice = answerObject[id]
-    const answerText = question[answerChoice]
+    const answerObject = users[authedUser].answers;
+    const answerChoice = answerObject[id];
+    const answerText = question[answerChoice];
 
     return (
       <div className="question-container">
@@ -30,13 +49,20 @@ class Question extends Component {
             <div className="question-options">
               <form>
                 <p>Would You Rather...</p>
-                <input type="radio" id="optionOne" value="optionOne"></input>
+                <input
+                  type="radio"
+                  id="optionOne"
+                  value="optionOne"
+                  onClick={this.selectOption}
+                ></input>
                 <label>{question.optionOne.text}</label>
                 <br></br>
                 <input type="radio" id="optionTwo" value="optionTwo"></input>
                 <label>{question.optionTwo.text}</label>
               </form>
-              <button className="submit">Submit</button>
+              <button className="submit" onClick={this.handleSubmitQuestion}>
+                Submit
+              </button>
             </div>
           )}
         </div>

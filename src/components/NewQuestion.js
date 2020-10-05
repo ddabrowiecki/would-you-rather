@@ -44,9 +44,9 @@ export class NewQuestion extends Component {
         }
         return(
             <div>
-            <h3>Create a New Question</h3>
+            <h3 className="create">Create a New Question</h3>
             <form className="new-question" onSubmit={this.handleSubmit}>
-                <h3>Would you rather...</h3>
+                <h3 className="would">Would you rather...</h3>
                 <input
                 placeholder='Option 1'
                 value={ optionOne }
@@ -61,6 +61,7 @@ export class NewQuestion extends Component {
                 />
                 <button
                 type="submit"
+                className="create-submit"
                 disabled={ optionOne === '' && optionTwo === ''}
                 >Submit</button>
             </form>
