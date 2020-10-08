@@ -33,10 +33,10 @@ export function receiveQuestions(questions) {
     }
 }
 
-export function addVote(author, questionId, voteOption) {
+export function addVote(authedUser, questionId, voteOption) {
     return {
         type: ADD_VOTE,
-        author,
+        authedUser,
         questionId,
         voteOption,
     }

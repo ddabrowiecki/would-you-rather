@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatQuestion } from "../_Data";
 import { handleAddVote } from "../actions/questions";
+import { addAnswerToUser } from "../actions/users";
 
 class Question extends Component {
   state = {
@@ -11,8 +12,9 @@ class Question extends Component {
 
   handleSubmitQuestion = () => {
     const { qid, vote } = this.state;
-    const { dispatch } = this.props;
+    const { dispatch, authedUser } = this.props;
     dispatch(handleAddVote(qid, vote));
+    dispatch(addAnswerToUser(authedUser, qid, vote));
   };
 
   selectOption = (e) => {
@@ -57,7 +59,12 @@ class Question extends Component {
                 ></input>
                 <label>{question.optionOne.text}</label>
                 <br></br>
-                <input type="radio" id="optionTwo" value="optionTwo"></input>
+                <input
+                  type="radio"
+                  id="optionTwo"
+                  value="optionTwo"
+                  onClick={this.selectOption}
+                ></input>
                 <label>{question.optionTwo.text}</label>
               </form>
               <button className="submit" onClick={this.handleSubmitQuestion}>
