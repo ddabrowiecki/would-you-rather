@@ -8,6 +8,7 @@ import NewQuestion from "./components/NewQuestion";
 import Leaderboard from "./components/Leaderboard";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
+import QuestionDetails from "./components/QuestionDetails"
 
 function mapStateToProps({ authedUser }) {
   return {
@@ -30,6 +31,7 @@ class App extends React.Component {
             <Route path="/add" exact component={NewQuestion} />
             <Route path="/leaderboard" exact component={Leaderboard} />
             <Route path="/login" exact component={Login} />
+            <Route path="/questions/:id" exact component={QuestionDetails} />
           </div>
         )}
       </Router>

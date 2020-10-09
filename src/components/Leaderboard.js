@@ -7,16 +7,23 @@ export class UserProfile extends Component {
     return (
       <div className="score-container">
         <div className="user-header">
-          <p>{user.name}</p>
+          <p className="p-header">{user.name}</p>
         </div>
-        <div className="score-box">
+        <div className="stats-box">
           <div className="user-avatar">
-            <img src={user.avatarURL} alt="None found"></img>
+            <img
+              src={user.avatarURL}
+              className="user-image"
+              alt="None found"
+            ></img>
           </div>
           <div className="score-options">
+            <div className="stats-container"></div>
             <p> Answered Questions: {Object.keys(user.answers).length}</p>
             <p> Created Questions: {user.questions.length}</p>
-            <p>Score</p>
+          </div>
+          <div className="score-box">
+            <p className="p-header">Score</p>
             <div>
               {Object.keys(user.answers).length + user.questions.length}
             </div>
@@ -45,6 +52,7 @@ export class Leaderboard extends Component {
 
 const mapStateToProps = ({ users }) => {
   const userObject = Object.values(users);
+  console.log(userObject)
   return {
     users: userObject,
   };

@@ -26,7 +26,7 @@ export class Login extends Component {
       <div>
         <form onSubmit={this.handleSubmit} className="login-form">
           <div className="login-image">
-            <img src={would} alt="None found"></img>
+            <img src={would} className="would-you" alt="None found"></img>
           </div>
           <div className="login-form-text">
             <label for="login">Please log in</label>
@@ -39,8 +39,8 @@ export class Login extends Component {
             >
               <option value={null}></option>
               <option value="tylermcginnis">Tyler</option>
-              <option value="sarahedo">Snow</option>
-              <option value="johndoe">Leif</option>
+              <option value="sarahedo">Sarah</option>
+              <option value="johndoe">John</option>
             </select>
             <button className="login-submit" type="submit">
               Submit

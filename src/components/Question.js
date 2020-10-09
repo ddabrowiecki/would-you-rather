@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { formatQuestion } from "../_Data";
 import { handleAddVote } from "../actions/questions";
 import { addAnswerToUser } from "../actions/users";
+import { Link, withRouter } from 'react-router-dom'
 
 class Question extends Component {
   state = {
@@ -32,48 +33,59 @@ class Question extends Component {
     const answerText = question[answerChoice];
 
     return (
-      <div className="question-container">
+      <Link to={`/questions/${id}`} className="question-container" >
         <div className="user-header">
           <p>{question.author.name} asks: </p>
         </div>
         <div className="question-box">
           <div className="user-avatar">
-            <img src={question.author.avatarURL} alt="None found"></img>
+            <img
+              src={question.author.avatarURL}
+              className="user-image"
+              alt="None found"
+            ></img>
           </div>
           {this.props.answered ? (
-            <div>
-              <p>Would You Rather...</p>
-              <div>{question.optionOne.text}</div>
-              <div>{question.optionTwo.text}</div>
-              <div>You said: {answerText.text}</div>
+            <div className="question-options">
+              <p className="p-header">Would You Rather...</p>
+              <div className="options">- {question.optionOne.text}</div>
+              <div className="options">- {question.optionTwo.text}</div>
+              <div className= "p-header options">You said: {answerText.text}</div>
             </div>
           ) : (
-            <div className="question-options">
-              <form>
-                <p>Would You Rather...</p>
-                <input
-                  type="radio"
-                  id="optionOne"
-                  value="optionOne"
-                  onClick={this.selectOption}
-                ></input>
-                <label>{question.optionOne.text}</label>
-                <br></br>
-                <input
-                  type="radio"
-                  id="optionTwo"
-                  value="optionTwo"
-                  onClick={this.selectOption}
-                ></input>
-                <label>{question.optionTwo.text}</label>
-              </form>
-              <button className="submit" onClick={this.handleSubmitQuestion}>
-                Submit
-              </button>
+            <div className="options-container">
+              <div className="question-options">
+                <form>
+                  <p className="p-header">Would You Rather...</p>
+                  <input
+                    type="radio"
+                    id="optionOne"
+                    value="optionOne"
+                    onClick={this.selectOption}
+                  ></input>
+                  <label>{question.optionOne.text}</label>
+                  <br></br>
+                  <input
+                    type="radio"
+                    id="optionTwo"
+                    value="optionTwo"
+                    onClick={this.selectOption}
+                  ></input>
+                  <label>{question.optionTwo.text}</label>
+                </form>
+                <div className="submit-container">
+                  <button
+                    className="submit"
+                    onClick={this.handleSubmitQuestion}
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
             </div>
           )}
         </div>
-      </div>
+      </ Link>
     );
   }
 }
@@ -91,4 +103,4 @@ function mapStateToProps({ authedUser, users, questions }, { id }) {
   };
 }
 
-export default connect(mapStateToProps)(Question);
+export default withRouter(connect(mapStateToProps)(Question));

@@ -29,17 +29,25 @@ class AnsweredQuestions extends Component {
 }
 
 class UnansweredQuestions extends Component {
+  state = {
+    noQuestions: false,
+  };
   render() {
     const { users, authedUser, questions } = this.props;
+    const { noQuestions } = this.state;
     const unanswered = questions.filter(
       (question) => !Object.keys(users[authedUser].answers).includes(question)
     );
     return (
       <div>
         <ul>
-          {unanswered.map((id) => (
-            <Question key={id} id={id} />
-          ))}
+          {noQuestions === true && (
+            <div className="out-of-questions">
+              No more questions. Write some more!
+            </div>
+          )}
+          {noQuestions === false &&
+            unanswered.map((id) => <Question key={id} id={id} />)}
         </ul>
       </div>
     );
@@ -71,18 +79,18 @@ class HomeScreen extends Component {
           </div>
         </div>
         <div className="question-list">
-        {this.state.showAnswered ? (
-          <AnsweredQuestions
-            users={this.props.users}
-            authedUser={this.props.authedUser}
-          />
-        ) : (
-          <UnansweredQuestions
-            users={this.props.users}
-            authedUser={this.props.authedUser}
-            questions={this.props.questionIDs}
-          />
-        )}
+          {this.state.showAnswered ? (
+            <AnsweredQuestions
+              users={this.props.users}
+              authedUser={this.props.authedUser}
+            />
+          ) : (
+            <UnansweredQuestions
+              users={this.props.users}
+              authedUser={this.props.authedUser}
+              questions={this.props.questionIDs}
+            />
+          )}
         </div>
       </div>
     );

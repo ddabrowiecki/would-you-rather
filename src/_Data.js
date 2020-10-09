@@ -1,11 +1,11 @@
-import snow from "./images/snow.jpg"
-import leaf from "./images/leaf.jpg"
-import tyler from "./images/tyler.jpg"
+import snow from "./images/icon3.png"
+import leaf from "./images/icon2.png"
+import tyler from "./images/icon1.png"
 
 let users = {
     sarahedo: {
       id: 'sarahedo',
-      name: 'Snow',
+      name: 'Sarah Edo',
       avatarURL: snow,
       answers: {
         "8xf0y6ziyjabvozdd253nd": 'optionOne',
@@ -17,7 +17,7 @@ let users = {
     },
     tylermcginnis: {
       id: 'tylermcginnis',
-      name: 'Tyler the Creator',
+      name: 'Tyler McGinnis',
       avatarURL: tyler,
       answers: {
         "vthrdm985a262al8qx3do": 'optionOne',
@@ -27,7 +27,7 @@ let users = {
     },
     johndoe: {
       id: 'johndoe',
-      name: 'Leif Eriksson',
+      name: 'John Doe',
       avatarURL: leaf,
       answers: {
         "xj352vofupe1dqz9emx13r": 'optionOne',
