@@ -17,16 +17,20 @@ class AnsweredQuestions extends Component {
   render() {
     const { users, authedUser, questions } = this.props;
     const answers = users[authedUser].answers;
-    const answered = questions.filter(
-      (question) => Object.keys(answers).includes(question)
+    const answered = questions.filter((question) =>
+      Object.keys(answers).includes(question)
     );
-    const sortedAnswers = []
-    answered.forEach((id) => sortedAnswers.push({[id]: answers[id]}))
+    const sortedAnswers = [];
+    answered.forEach((id) => sortedAnswers.push({ [id]: answers[id] }));
     return (
       <div>
         <ul>
           {sortedAnswers.map((entry) => (
-            <Question key={Object.keys(entry)} id={Object.keys(entry)} answered={this.state.answered} />
+            <Question
+              key={Object.keys(entry)}
+              id={Object.keys(entry)}
+              answered={this.state.answered}
+            />
           ))}
         </ul>
       </div>
@@ -35,25 +39,15 @@ class AnsweredQuestions extends Component {
 }
 
 class UnansweredQuestions extends Component {
-  state = {
-    noQuestions: false,
-  };
   render() {
     const { users, authedUser, questions } = this.props;
-    const { noQuestions } = this.state;
     const unanswered = questions.filter(
       (question) => !Object.keys(users[authedUser].answers).includes(question)
     );
     return (
       <div>
         <ul>
-          {noQuestions === true && (
-            <div className="out-of-questions">
-              No more questions. Write some more!
-            </div>
-          )}
-          {noQuestions === false &&
-            unanswered.map((id) => <Question key={id} id={id} />)}
+            {unanswered.map((id) => <Question key={id} id={id} />)}
         </ul>
       </div>
     );
@@ -75,13 +69,17 @@ class HomeScreen extends Component {
 
   sortQuestions = () => {
     const { questions } = this.props;
-    const questionsArray = []
-    Object.values(questions).forEach((question) => questionsArray.push(question))
-    const sortedQuestions = questionsArray.sort((a,b) => b.timestamp - a.timestamp)
-    const sortedIds = []
-    sortedQuestions.forEach((question) => sortedIds.push(question.id))
-    return sortedIds
-  }
+    const questionsArray = [];
+    Object.values(questions).forEach((question) =>
+      questionsArray.push(question)
+    );
+    const sortedQuestions = questionsArray.sort(
+      (a, b) => b.timestamp - a.timestamp
+    );
+    const sortedIds = [];
+    sortedQuestions.forEach((question) => sortedIds.push(question.id));
+    return sortedIds;
+  };
 
   render() {
     return (

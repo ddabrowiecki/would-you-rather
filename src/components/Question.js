@@ -4,7 +4,6 @@ import { formatQuestion } from "../_Data";
 import { handleAddVote } from "../actions/questions";
 import { addAnswerToUser } from "../actions/users";
 import { Link, withRouter } from 'react-router-dom';
-// import magglass from "./images/magglass.png";
 
 class Question extends Component {
   state = {
