@@ -4,9 +4,6 @@ import { connect } from "react-redux";
 export class UserProfile extends Component {
   render() {
     const { user } = this.props;
-    const answered = Object.keys(user.answers).length
-    const created = user.questions.length
-    const score = answered + created
     return (
       <div className="score-container">
         <div className="user-header">
@@ -22,13 +19,13 @@ export class UserProfile extends Component {
           </div>
           <div className="score-options">
             <div className="stats-container"></div>
-            <p> Answered Questions: {answered}</p>
-            <p> Created Questions: {created}</p>
+            <p> Answered Questions: {user.answered}</p>
+            <p> Created Questions: {user.created}</p>
           </div>
           <div className="score-box">
             <p className="p-header">Score</p>
             <div>
-              {score}
+              {user.score}
             </div>
           </div>
         </div>
@@ -40,12 +37,18 @@ export class UserProfile extends Component {
 export class Leaderboard extends Component {
   render() {
     const { users } = this.props;
+    users.forEach(user => {
+      user["answered"] = Object.keys(user.answers).length
+      user["created"] = user.questions.length
+      user["score"] = user.answered + user.created
+    })
+    const sortedUsers = users.sort((a,b)=> b.score - a.score)
     return (
       <div>
         <div className="leader-list">
           <ul>
-            {users &&
-              users.map((user) => <UserProfile key={user.name} user={user} />)}
+            {sortedUsers &&
+              sortedUsers.map((user) => <UserProfile key={user.name} user={user} />)}
           </ul>
         </div>
       </div>
@@ -55,7 +58,6 @@ export class Leaderboard extends Component {
 
 const mapStateToProps = ({ users }) => {
   const userObject = Object.values(users);
-  console.log(userObject)
   return {
     users: userObject,
   };
