@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { formatQuestion } from "../_Data";
 import { handleAddVote } from "../actions/questions";
 import { addAnswerToUser } from "../actions/users";
-import { Link, withRouter } from 'react-router-dom';
+import { Link, withRouter } from "react-router-dom";
 
 class Question extends Component {
   state = {
@@ -34,11 +34,11 @@ class Question extends Component {
     const answerText = question[answerChoice];
 
     return (
-      <div className="question-container" >
+      <div className="question-container">
         <div className="user-header">
           <p>{question.author.name} asks: </p>
-          <Link to={`/questions/${id}`}  className="question-details">
-              Details
+          <Link to={`/questions/${id}`} className="question-details">
+            Details
           </Link>
         </div>
         <div className="question-box">
@@ -54,7 +54,9 @@ class Question extends Component {
               <p className="p-header">Would You Rather...</p>
               <div className="options">{question.optionOne.text}</div>
               <div className="options">{question.optionTwo.text}</div>
-              <div className= "p-header options">You said: {answerText.text}</div>
+              <div className="p-header options">
+                You said: {answerText.text}
+              </div>
             </div>
           ) : (
             <div className="options-container">

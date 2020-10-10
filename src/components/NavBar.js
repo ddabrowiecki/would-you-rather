@@ -19,25 +19,37 @@ export class NavBar extends Component {
       <ul className="nav-bar">
         <li>
           <NavLink className="home-tab" to="/" exact activeClassName="active">
-          Questions 
+            Questions
           </NavLink>
         </li>
         <li>
-          <NavLink className="add-question-tab" to="/add" exact activeClassName="active">
+          <NavLink
+            className="add-question-tab"
+            to="/add"
+            exact
+            activeClassName="active"
+          >
             Add New Question
           </NavLink>
         </li>
         <li>
-          <NavLink className="leaderboard-tab" to="/leaderboard" exact activeClassName="active">
+          <NavLink
+            className="leaderboard-tab"
+            to="/leaderboard"
+            exact
+            activeClassName="active"
+          >
             Leaderboard
           </NavLink>
         </li>
         <li>Hey there, {users[authedUser].name}</li>
         <li>
           <div
-          className="logout-tab"
-          onClick={() => this.props.dispatch(logoutAuthedUser())}
-          >Logout</div>
+            className="logout-tab"
+            onClick={() => this.props.dispatch(logoutAuthedUser())}
+          >
+            Logout
+          </div>
         </li>
       </ul>
     );

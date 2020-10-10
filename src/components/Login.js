@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handleLoginAuthedUser } from "../actions/shared";
-import would from "./wouldyourather.png"
+import would from "./wouldyourather.png";
 
 export class Login extends Component {
   state = {

@@ -47,7 +47,9 @@ class UnansweredQuestions extends Component {
     return (
       <div>
         <ul>
-            {unanswered.map((id) => <Question key={id} id={id} />)}
+          {unanswered.map((id) => (
+            <Question key={id} id={id} />
+          ))}
         </ul>
       </div>
     );

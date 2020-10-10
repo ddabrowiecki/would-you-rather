@@ -24,9 +24,7 @@ export class UserProfile extends Component {
           </div>
           <div className="score-box">
             <p className="p-header">Score</p>
-            <div>
-              {user.score}
-            </div>
+            <div>{user.score}</div>
           </div>
         </div>
       </div>
@@ -37,18 +35,20 @@ export class UserProfile extends Component {
 export class Leaderboard extends Component {
   render() {
     const { users } = this.props;
-    users.forEach(user => {
-      user["answered"] = Object.keys(user.answers).length
-      user["created"] = user.questions.length
-      user["score"] = user.answered + user.created
-    })
-    const sortedUsers = users.sort((a,b)=> b.score - a.score)
+    users.forEach((user) => {
+      user["answered"] = Object.keys(user.answers).length;
+      user["created"] = user.questions.length;
+      user["score"] = user.answered + user.created;
+    });
+    const sortedUsers = users.sort((a, b) => b.score - a.score);
     return (
       <div>
         <div className="leader-list">
           <ul>
             {sortedUsers &&
-              sortedUsers.map((user) => <UserProfile key={user.name} user={user} />)}
+              sortedUsers.map((user) => (
+                <UserProfile key={user.name} user={user} />
+              ))}
           </ul>
         </div>
       </div>

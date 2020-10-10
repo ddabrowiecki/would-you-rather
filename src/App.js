@@ -8,7 +8,7 @@ import NewQuestion from "./components/NewQuestion";
 import Leaderboard from "./components/Leaderboard";
 import Login from "./components/Login";
 import NavBar from "./components/NavBar";
-import QuestionDetails from "./components/QuestionDetails"
+import QuestionDetails from "./components/QuestionDetails";
 
 function mapStateToProps({ authedUser }) {
   return {

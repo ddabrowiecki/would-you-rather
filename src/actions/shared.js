@@ -1,10 +1,7 @@
 import { getInitialData } from "../API";
 import { receiveUsers } from "../actions/users";
 import { receiveQuestions } from "./questions";
-import {
-  getAuthedUser,
-  loginAuthedUser,
-} from "../actions/authedUser";
+import { getAuthedUser, loginAuthedUser } from "../actions/authedUser";
 
 const AUTHED_ID = null;
 
@@ -23,4 +20,3 @@ export function handleLoginAuthedUser(id) {
     dispatch(loginAuthedUser(id));
   };
 }
-
