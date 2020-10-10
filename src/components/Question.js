@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { formatQuestion } from "../_Data";
 import { handleAddVote } from "../actions/questions";
 import { addAnswerToUser } from "../actions/users";
-import { Link, withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom';
+// import magglass from "./images/magglass.png";
 
 class Question extends Component {
   state = {
@@ -33,9 +34,17 @@ class Question extends Component {
     const answerText = question[answerChoice];
 
     return (
-      <Link to={`/questions/${id}`} className="question-container" >
+      <div className="question-container" >
         <div className="user-header">
           <p>{question.author.name} asks: </p>
+          <Link to={`/questions/${id}`}  className="question-details">
+            {/* <img
+                src={magglass}
+                className="details-image"
+                alt="None found"
+              ></img> */}
+              Details
+          </Link>
         </div>
         <div className="question-box">
           <div className="user-avatar">
@@ -48,8 +57,8 @@ class Question extends Component {
           {this.props.answered ? (
             <div className="question-options">
               <p className="p-header">Would You Rather...</p>
-              <div className="options">- {question.optionOne.text}</div>
-              <div className="options">- {question.optionTwo.text}</div>
+              <div className="options">{question.optionOne.text}</div>
+              <div className="options">{question.optionTwo.text}</div>
               <div className= "p-header options">You said: {answerText.text}</div>
             </div>
           ) : (
@@ -85,7 +94,7 @@ class Question extends Component {
             </div>
           )}
         </div>
-      </ Link>
+      </div>
     );
   }
 }

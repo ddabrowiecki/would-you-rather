@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 export class UserProfile extends Component {
   render() {
     const { user } = this.props;
+    const answered = Object.keys(user.answers).length
+    const created = user.questions.length
+    const score = answered + created
     return (
       <div className="score-container">
         <div className="user-header">
@@ -19,13 +22,13 @@ export class UserProfile extends Component {
           </div>
           <div className="score-options">
             <div className="stats-container"></div>
-            <p> Answered Questions: {Object.keys(user.answers).length}</p>
-            <p> Created Questions: {user.questions.length}</p>
+            <p> Answered Questions: {answered}</p>
+            <p> Created Questions: {created}</p>
           </div>
           <div className="score-box">
             <p className="p-header">Score</p>
             <div>
-              {Object.keys(user.answers).length + user.questions.length}
+              {score}
             </div>
           </div>
         </div>

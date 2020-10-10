@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-class QuestionDetails extends Component {
+class Details extends Component {
+  getPercentage = (answerArray) => {
+    const numberUsers = Object.keys(this.props.users);
+    const percentage = (answerArray.length / numberUsers.length) * 100;
+    return `${Math.round(percentage)}%`;
+  };
+
   render() {
     const { question, authedUser, users } = this.props;
     const id = question.id;
@@ -25,8 +31,26 @@ class QuestionDetails extends Component {
             {answerChoice ? (
               <div className="question-options">
                 <p className="p-header">Would You Rather...</p>
-                <div className="options">{question.optionOne.text}</div>
-                <div className="options">{question.optionTwo.text}</div>
+                <div className="options">
+                  {question.optionOne.text}
+                  <div className="number-votes">
+                    Number of Votes: {question.optionOne.votes.length}
+                  </div>
+                  <div className="percentage-votes">
+                    Percentage of Votes:{" "}
+                    {this.getPercentage(question.optionOne.votes)}
+                  </div>
+                </div>
+                <div className="options">
+                  {question.optionTwo.text}
+                  <div className="number-votes">
+                    Number of Votes: {question.optionTwo.votes.length}
+                  </div>
+                  <div className="percentage-votes">
+                    Percentage of Votes:{" "}
+                    {this.getPercentage(question.optionTwo.votes)}
+                  </div>
+                </div>
                 <div className="p-header options-answer">
                   You said: {answerText.text}
                 </div>
@@ -34,8 +58,26 @@ class QuestionDetails extends Component {
             ) : (
               <div className="question-options">
                 <p className="p-header">Would You Rather...</p>
-                <div className="options">{question.optionOne.text}</div>
-                <div className="options">{question.optionTwo.text}</div>
+                <div className="options">
+                  {question.optionOne.text}
+                  <div className="number-votes">
+                    Number of Votes: {question.optionOne.votes.length}
+                  </div>
+                  <div className="percentage-votes">
+                    Percentage of Votes:{" "}
+                    {this.getPercentage(question.optionOne.votes)}
+                  </div>
+                </div>
+                <div className="options">
+                  {question.optionTwo.text}
+                  <div className="number-votes">
+                    Number of Votes: {question.optionTwo.votes.length}
+                  </div>
+                  <div className="percentage-votes">
+                    Percentage of Votes:{" "}
+                    {this.getPercentage(question.optionTwo.votes)}
+                  </div>
+                </div>
                 <div className="p-header options-answer">
                   You haven't answered this question yet!
                 </div>
@@ -43,6 +85,26 @@ class QuestionDetails extends Component {
             )}
           </div>
         </div>
+      </div>
+    );
+  }
+}
+
+class ErrorPage extends Component {
+  render() {
+    return <div className="error-page">Oops, that poll does not exist!</div>;
+  }
+}
+
+class QuestionDetails extends Component {
+  render() {
+    const { question, authedUser, users } = this.props;
+    return (
+      <div>
+        {question && (
+          <Details question={question} authedUser={authedUser} users={users} />
+        )}
+        {!question && <ErrorPage />}
       </div>
     );
   }
