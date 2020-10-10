@@ -19,7 +19,7 @@ export class NavBar extends Component {
       <ul className="nav-bar">
         <li>
           <NavLink className="home-tab" to="/" exact activeClassName="active">
-          Home
+          Questions 
           </NavLink>
         </li>
         <li>

@@ -6,7 +6,7 @@ function mapStateToProps({ questions, authedUser, users }) {
   return {
     authedUser,
     users,
-    questionIDs: Object.keys(questions),
+    questions,
   };
 }
 
@@ -15,12 +15,18 @@ class AnsweredQuestions extends Component {
     answered: true,
   };
   render() {
-    const { users, authedUser } = this.props;
+    const { users, authedUser, questions } = this.props;
+    const answers = users[authedUser].answers;
+    const answered = questions.filter(
+      (question) => Object.keys(answers).includes(question)
+    );
+    const sortedAnswers = []
+    answered.forEach((id) => sortedAnswers.push({[id]: answers[id]}))
     return (
       <div>
         <ul>
-          {Object.keys(users[authedUser].answers).map((id) => (
-            <Question key={id} id={id} answered={this.state.answered} />
+          {sortedAnswers.map((entry) => (
+            <Question key={Object.keys(entry)} id={Object.keys(entry)} answered={this.state.answered} />
           ))}
         </ul>
       </div>
@@ -67,6 +73,17 @@ class HomeScreen extends Component {
     this.setState({ showAnswered: true });
   };
 
+  sortQuestions = () => {
+    const { questions } = this.props;
+    const questionsArray = []
+    Object.values(questions).forEach((question) => questionsArray.push(question))
+    const sortedQuestions = questionsArray.sort((a,b) => b.timestamp - a.timestamp)
+    const sortedIds = []
+    sortedQuestions.forEach((question) => sortedIds.push(question.id))
+    console.log(sortedIds)
+    return sortedIds
+  }
+
   render() {
     return (
       <div>
@@ -83,12 +100,13 @@ class HomeScreen extends Component {
             <AnsweredQuestions
               users={this.props.users}
               authedUser={this.props.authedUser}
+              questions={this.sortQuestions()}
             />
           ) : (
             <UnansweredQuestions
               users={this.props.users}
               authedUser={this.props.authedUser}
-              questions={this.props.questionIDs}
+              questions={this.sortQuestions()}
             />
           )}
         </div>
