@@ -29,6 +29,7 @@ class Question extends Component {
 
   render() {
     const { question, authedUser, users, id } = this.props;
+    const { vote } = this.state;
     const answerObject = users[authedUser].answers;
     const answerChoice = answerObject[id];
     const answerText = question[answerChoice];
@@ -38,11 +39,6 @@ class Question extends Component {
         <div className="user-header">
           <p>{question.author.name} asks: </p>
           <Link to={`/questions/${id}`}  className="question-details">
-            {/* <img
-                src={magglass}
-                className="details-image"
-                alt="None found"
-              ></img> */}
               Details
           </Link>
         </div>
@@ -85,7 +81,7 @@ class Question extends Component {
                 <div className="submit-container">
                   <button
                     className="submit"
-                    onClick={this.handleSubmitQuestion}
+                    onClick={vote && this.handleSubmitQuestion}
                   >
                     Submit
                   </button>

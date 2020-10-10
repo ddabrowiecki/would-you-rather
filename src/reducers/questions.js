@@ -3,7 +3,6 @@ import {
   ADD_QUESTION,
   ADD_VOTE,
 } from "../actions/questions";
-import { _getUsers } from "../_Data";
 
 export default function questions(state = {}, action) {
   switch (action.type) {

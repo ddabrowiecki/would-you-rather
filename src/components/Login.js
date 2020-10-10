@@ -29,7 +29,7 @@ export class Login extends Component {
             <img src={would} className="would-you" alt="None found"></img>
           </div>
           <div className="login-form-text">
-            <label for="login">Please log in</label>
+            <label htmlFor="login">Please log in</label>
             <select
               className="login-dropdown"
               id="login"
