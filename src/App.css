@@ -10,6 +10,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-around;
   background-color: crimson;
@@ -160,6 +161,14 @@
 }
 
 .options {
+  margin: 5px;
+  border-style: solid;
+  border-color: crimson;
+  border-radius: 6px;
+  padding: 5px;
+}
+
+.options-header {
   margin: 5px;
 }
 
