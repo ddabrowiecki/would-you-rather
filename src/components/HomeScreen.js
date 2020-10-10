@@ -80,7 +80,6 @@ class HomeScreen extends Component {
     const sortedQuestions = questionsArray.sort((a,b) => b.timestamp - a.timestamp)
     const sortedIds = []
     sortedQuestions.forEach((question) => sortedIds.push(question.id))
-    console.log(sortedIds)
     return sortedIds
   }
 
