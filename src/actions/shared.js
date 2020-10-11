@@ -1,6 +1,6 @@
-import { getInitialData } from "../API";
-import { receiveUsers } from "../actions/users";
-import { receiveQuestions } from "./questions";
+import { getInitialData, saveQuestion } from "../API";
+import { receiveUsers, addQuestionToUser } from "../actions/users";
+import { receiveQuestions, addQuestion } from "./questions";
 import { getAuthedUser, loginAuthedUser } from "../actions/authedUser";
 
 const AUTHED_ID = null;
@@ -20,3 +20,19 @@ export function handleLoginAuthedUser(id) {
     dispatch(loginAuthedUser(id));
   };
 }
+
+export const handleAddQuestion = (optionOneText, optionTwoText) => {
+  return (dispatch, getState) => {
+    const { authedUser } = getState();
+    return saveQuestion({
+      optionOneText,
+      optionTwoText,
+      author: authedUser,
+    }).then((question) => {
+      const id = question.id;
+      console.log(id)
+      dispatch(addQuestion(question));
+      dispatch(addQuestionToUser(authedUser, id))
+    });
+  };
+};

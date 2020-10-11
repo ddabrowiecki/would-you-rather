@@ -11,19 +11,19 @@ export function addQuestion(question) {
   };
 }
 
-export const handleAddQuestion = (optionOneText, optionTwoText) => {
-  return (dispatch, getState) => {
-    const { authedUser } = getState();
+// export const handleAddQuestion = (optionOneText, optionTwoText) => {
+//   return (dispatch, getState) => {
+//     const { authedUser } = getState();
 
-    return saveQuestion({
-      optionOneText,
-      optionTwoText,
-      author: authedUser,
-    }).then((question) => {
-      dispatch(addQuestion(question));
-    });
-  };
-};
+//     return saveQuestion({
+//       optionOneText,
+//       optionTwoText,
+//       author: authedUser,
+//     }).then((question) => {
+//       dispatch(addQuestion(question));
+//     });
+//   };
+// };
 
 export function receiveQuestions(questions) {
   return {

@@ -37,7 +37,7 @@ export class Leaderboard extends Component {
     const { users } = this.props;
     users.forEach((user) => {
       user["answered"] = Object.keys(user.answers).length;
-      user["created"] = user.questions.length;
+      user["created"] = Object.keys(user.questions).length;
       user["score"] = user.answered + user.created;
     });
     const sortedUsers = users.sort((a, b) => b.score - a.score);

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { handleAddQuestion } from "../actions/questions";
+import { handleAddQuestion } from "../actions/shared";
 import { Redirect } from "react-router-dom";
 
 export class NewQuestion extends Component {
@@ -10,19 +10,9 @@ export class NewQuestion extends Component {
     toHome: false,
   };
 
-  handleChangeOptionOne = (e) => {
-    const optionOne = e.target.value;
-    this.setState(() => ({
-      optionOne,
-    }));
-  };
-
-  handleChangeOptionTwo = (e) => {
-    const optionTwo = e.target.value;
-    this.setState(() => ({
-      optionTwo,
-    }));
-  };
+  handleChangeOption = (e) => {
+    this.setState({[e.target.name]: e.target.value})
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -50,13 +40,15 @@ export class NewQuestion extends Component {
           <input
             placeholder="Option 1"
             value={optionOne}
-            onChange={this.handleChangeOptionOne}
+            name="optionOne"
+            onChange={this.handleChangeOption}
             className="option-one"
           />
           <input
             placeholder="Option 2"
             value={optionTwo}
-            onChange={this.handleChangeOptionTwo}
+            name="optionTwo"
+            onChange={this.handleChangeOption}
             className="option-two"
           />
           <button

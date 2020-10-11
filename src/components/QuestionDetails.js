@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 
 class Details extends Component {
   getPercentage = (answerArray) => {
-    const numberUsers = Object.keys(this.props.users);
-    const percentage = (answerArray.length / numberUsers.length) * 100;
+    const { question, questions } = this.props;
+    const individualQuestion = questions[question.id]
+    const sumOfVoteLengths = individualQuestion.optionOne.votes.length + individualQuestion.optionTwo.votes.length
+    const percentage = (answerArray.length) / (sumOfVoteLengths) * 100;
     return `${Math.round(percentage)}%`;
   };
 
@@ -98,11 +100,11 @@ class ErrorPage extends Component {
 
 class QuestionDetails extends Component {
   render() {
-    const { question, authedUser, users } = this.props;
+    const { question, authedUser, questions, users } = this.props;
     return (
       <div>
         {question && (
-          <Details question={question} authedUser={authedUser} users={users} />
+          <Details question={question} authedUser={authedUser} users={users} questions={questions} />
         )}
         {!question && <ErrorPage />}
       </div>
@@ -115,6 +117,7 @@ function mapStateToProps({ authedUser, questions, users }, { match }) {
   const question = questions[id];
   return {
     question,
+    questions,
     id,
     authedUser,
     users,
