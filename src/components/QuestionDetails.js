@@ -4,10 +4,16 @@ import { connect } from "react-redux";
 class Details extends Component {
   getPercentage = (answerArray) => {
     const { question, questions } = this.props;
-    const individualQuestion = questions[question.id]
-    const sumOfVoteLengths = individualQuestion.optionOne.votes.length + individualQuestion.optionTwo.votes.length
-    const percentage = (answerArray.length) / (sumOfVoteLengths) * 100;
-    return `${Math.round(percentage)}%`;
+    const individualQuestion = questions[question.id];
+    const sumOfVoteLengths =
+      individualQuestion.optionOne.votes.length +
+      individualQuestion.optionTwo.votes.length;
+    if (sumOfVoteLengths > 0) {
+      const percentage = (answerArray.length / sumOfVoteLengths) * 100;
+      return `${Math.round(percentage)}%`;
+    } else {
+      return "0%";
+    }
   };
 
   render() {
@@ -104,7 +110,12 @@ class QuestionDetails extends Component {
     return (
       <div>
         {question && (
-          <Details question={question} authedUser={authedUser} users={users} questions={questions} />
+          <Details
+            question={question}
+            authedUser={authedUser}
+            users={users}
+            questions={questions}
+          />
         )}
         {!question && <ErrorPage />}
       </div>

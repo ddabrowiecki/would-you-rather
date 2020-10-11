@@ -31,7 +31,7 @@ export const handleAddQuestion = (optionOneText, optionTwoText) => {
     }).then((question) => {
       const id = question.id;
       dispatch(addQuestion(question));
-      dispatch(addQuestionToUser(authedUser, id))
+      dispatch(addQuestionToUser(authedUser, id));
     });
   };
 };

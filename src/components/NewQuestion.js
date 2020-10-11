@@ -11,15 +11,15 @@ export class NewQuestion extends Component {
   };
 
   handleChangeOption = (e) => {
-    this.setState({[e.target.name]: e.target.value})
-  }
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
     const { optionOne, optionTwo } = this.state;
     const { dispatch } = this.props;
     if (optionOne && optionTwo) {
-    dispatch(handleAddQuestion(optionOne, optionTwo));
+      dispatch(handleAddQuestion(optionOne, optionTwo));
     }
 
     this.setState(() => ({
@@ -56,7 +56,7 @@ export class NewQuestion extends Component {
           <button
             type="submit"
             className="create-submit"
-            disabled={optionOne === "" || optionTwo === "" }
+            disabled={optionOne === "" || optionTwo === ""}
           >
             Submit
           </button>

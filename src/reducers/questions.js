@@ -20,15 +20,15 @@ export default function questions(state = {}, action) {
     case ADD_VOTE:
       const { questionId, voteOption, authedUser } = action;
       return {
-            ...state,
-            [questionId]: {
-                ...state[questionId],
-                [voteOption]: {
-                    ...state[questionId][voteOption],
-                    votes: state[questionId][voteOption].votes.concat([authedUser])
-                }
-            },
-        }
+        ...state,
+        [questionId]: {
+          ...state[questionId],
+          [voteOption]: {
+            ...state[questionId][voteOption],
+            votes: state[questionId][voteOption].votes.concat([authedUser]),
+          },
+        },
+      };
     default:
       return state;
   }
