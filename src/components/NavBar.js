@@ -44,12 +44,15 @@ export class NavBar extends Component {
         </li>
         <li>Hey there, {users[authedUser].name}</li>
         <li>
-          <div
+          <NavLink
             className="logout-tab"
+            to="/"
+            exact
+            activeClassName="active"
             onClick={() => this.props.dispatch(logoutAuthedUser())}
           >
             Logout
-          </div>
+          </NavLink>
         </li>
       </ul>
     );

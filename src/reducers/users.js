@@ -13,9 +13,9 @@ export default function users(state = {}, action) {
         ...state,
         [author]: {
           ...state[author],
-          questions: {
+          questions: [
           ...state[author].questions.concat([id]),
-          }
+          ]
         }
       }
     case ADD_ANSWER_TO_USER:
