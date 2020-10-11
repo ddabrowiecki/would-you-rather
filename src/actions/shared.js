@@ -30,7 +30,6 @@ export const handleAddQuestion = (optionOneText, optionTwoText) => {
       author: authedUser,
     }).then((question) => {
       const id = question.id;
-      console.log(id)
       dispatch(addQuestion(question));
       dispatch(addQuestionToUser(authedUser, id))
     });
